@@ -1,0 +1,683 @@
+<!doctype html>
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Dynamique des sites</title>
+
+		<meta name="description" content="A la découverte de JavaScript">
+		<meta name="author" content="Alexandre LAMOOT & Youri ESCHENBRUMER">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="libs/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="libs/reveal.js/css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="libs/reveal.js/lib/css/zenburn.css">
+
+        <style>
+            .reveal section img.imgNoDecorate {
+                border:0;
+                box-shadow: 0 0 0;
+                background: initial;
+            }
+        </style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'libs/reveal.js/css/print/pdf.css' : 'libs/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal-3.2.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+                <!-- *************************************************************** -->
+                <!-- 0. Titre & plan -->
+                <!-- *************************************************************** -->
+
+				<section>
+					<h1>Dynamique des sites</h1>
+					<h3>A la découverte de JavaScript</h3>
+                    <p></p>
+					<p>
+						<small>Créée par Alexandre LAMOOT & Youri ESCHENBRUMER via l'API de présentation <a href="https://github.com/hakimel/reveal.js">Reveal.js</a></small>
+					</p>
+
+                    <aside class="notes">
+                    </aside>
+				</section>
+
+
+                <!-- *************************************************************** -->
+                <!-- 0. A l'aventure ! -->
+                <!-- *************************************************************** -->
+
+                <section>
+                    <section>
+                        <h3>Qui sommes nous?</h3>
+
+                        <img src="images/section0/qui-sommes-nous.jpg" class="imgNoDecorate" width="400"/>
+
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Alexandre LAMOOT</h3>
+
+                        <ul>
+                            <li> Master Ingénierie de Projet Informatique Innovation</li>
+                            <li>Ingénieur d'études chez Proxiad depuis 2017</li>
+                            <img src="images/proxiad.jpg" class="imgNoDecorate" width="200"/>
+                            <li>Ingénieur d'études et développement Customer Engagement chez Adeo  <img src="images/section0/Logo_adeo-LM.jpg" class="imgNoDecorate" width="200"/></li>
+                            <li>Passionné des nouvelles technologies</li>
+                            <li>Contact <a href="mailto:a.lamoot@proxiad.com">a.lamoot@proxiad.com</a> / 06.58.53.04.66</li>
+                        </ul>
+
+
+
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+
+                        <h3>Youri ESCHENBRUMER</h3>
+
+                        <ul>
+                            <li>ISEN Brest, Diplôme d'ingénieur, Génie logiciel</li>
+                            <li>Ingénieur d'études chez Proxiad depuis 2017</li>
+                            <img src="images/proxiad.jpg" class="imgNoDecorate" width="200"/>
+                            <li>Ingénieur d'études et développement Customer Engagement chez Adeo  <img src="images/section0/Logo_adeo-LM.jpg" class="imgNoDecorate" width="200"/></li>
+                            <li>Passionné des nouvelles technologies</li>
+                            <li>Contact <a href="mailto:y.eschenbrumer@proxiad.com">y.eschenbrumer@proxiad.com</a></li>
+                        </ul>
+
+
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Comment estimez vous votre niveau en JavaScript?</h3>
+
+                        <img src="images/section0/niveau.png" class="imgNoDecorate" width="400"/>
+
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>But du cours</h3>
+
+                        <img src="images/section0/checklist.jpg" class="imgNoDecorate" width="150"/>
+
+                        <ul>
+                            <li class="fragment">A quoi sert le JavaScript?</li>
+                            <li class="fragment">Les bases fondamentales de JavaScript</li>
+                            <li class="fragment">Utilisation de la librairie JQuery</li>
+                            <li class="fragment">Dynamiser son site internet avec Ajax</li>
+                           <!-- <li class="fragment"> A chaque cours : 
+                                <ul>
+                                    <li>Une partie théorique</li>
+                                    <li>Une mise en pratique</li>
+                                </ul>
+                            </li> -->
+                        </ul>
+
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Nous comptons sur </h3>
+                        <ul>
+                           <li class="fragment">Votre assiduité 
+                                <ul>
+                                    <li>Porte fermée 15 minutes après le début du cours</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">Votre attention 
+                                <ul>
+                                    <li>Utile pour la partie pratique du cours et les rendus</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">Votre participation 
+                                <ul>
+                                    <li>N’hésitez pas à poser des questions</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Plan</h3>
+                        <ul>
+                           <li>Quizz sur JavaScript</li>
+                           <li>Historique de JavaScript</li>
+                           <li>Les bases de JavaScript
+                               <ul>
+                                   <li>Les variables</li>
+                                   <li>Les tableaux</li>
+                                   <li>Les boucles</li>
+                                   <li>Les opérateurs</li>
+                                   <li>Les conditions</li>
+                                   <li>Les fonctions</li>
+                               </ul>
+                           </li>
+
+                        </ul>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Plan</h3>
+                        <ul>
+                            <li>Ajax
+                                <ul>
+                                    <li>Ajax, qu'est ce que c'est ?</li>
+                                    <li>Créer sa première page</li>
+                                    <li>Rendre son site Ajax compatible avec tous les navigateurs</li>
+                                    <li>Les langages serveurs</li>
+                                </ul>
+                            </li>
+                            <li>JQuery
+                                <ul>
+                                    <li>Introduction</li>
+                                    <li>Créer une première page avec JQuery</li>
+                                    <li>Donner vie à son site (animations)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+
+                <!-- *************************************************************** -->
+                <!-- 1. Quizz -->
+                <!-- *************************************************************** -->
+
+				<section>
+					<h3>Place au Quizz</h3>
+                    
+                    <a href="https://create.kahoot.it/details/test-javascript/b3f4c63c-e755-47ff-98bf-0a7b5d45982c" target="_blank"><img src="images/section0/niveau.png" class="imgNoDecorate" width="200"/></a>
+
+                    <aside class="notes">
+                    </aside>
+                </section>
+                
+                <!-- *************************************************************** -->
+                <!-- 2. Historique de JavaScript -->
+                <!-- *************************************************************** -->
+
+				<section>
+					<section>
+                        <h3>Historique de JavaScript</h3>
+                        <ul>
+                            <li>JavaScript, et surtout l'utilisation qu'en font les responsables de sites web, a beaucoup évolué depuis sa sortie.<br/>
+                                Il y a quelques années encore,ce langage était utilisé essentiellement pour des annimations, lourdes et le plus souvent inutile.
+                            </li>
+                            <li>Cette mauvaise réputation est aussi le résultat de son historique. En effet, ce langage a été enrichi progressivement au fur et mesure des besoins</li>
+                        </ul>
+    
+                        <aside class="notes">
+                            <p>En 1995, le Javascript apparu et fut utiliser de manière limitée, c'est à dire, nous l'utilisions afin d'afficher quelques alertes et quelques pop-ups... 
+                                Le plus gros problème était les navigateurs...</p>
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Historique de JavaScript</h3>
+                        <ul>
+                            <li>La guerre entre les différentes sociétés éditrices de navigateurs web a largement contribué à créer des incohérences et les problèmes de
+                                compatibilité que connaît JavaScript. 
+                            </li>
+                            <li>De nombreux développeurs considèrent JavaScript comme un sous-langage, ne méritant même pas qu'on s'y intéresse.</li>
+                        </ul>
+    
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <h3>Historique de JavaScript</h3>
+                        <ul>
+                            <li>Les efforts de standardisation et de compatibilité entre les navigateurs ont efficacement simplifié le travail des développeurs, rendant le
+                                langage plus accessible.
+                            </li>
+                            <li>Même si les tests visant à s'assurer de la compatibilité entre les différents navigateurs et système d'exploitation représentent toujours
+                                une lourde tâche, de vrais progrès ont été réalisés.
+                            </li>
+                        </ul>
+    
+                        <aside class="notes">
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Historique de JavaScript</h3>
+                        <ul>
+                            <li>La compatibilité entre les navigateurs s'est nettement améliorée depuis quelques annnées. Au début des années 2000, les deux principaux
+                                navigateurs, Intenet explorer 4 et 5 & Netscape v4, étaient totalement différents au niveau de leur interprétation JS. 
+                            </li>
+                            <li>
+                                JavaScript est un langage de script.Il est interprété, c'est-à-dire que le script est lu, analysé et éxécuté directement depuis le code
+                                source sous sa forme textuelle par le navigateur, sans aucune transformation. 
+                            </li>
+                        </ul>
+    
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h3>Les limites de JavaScript</h3>
+
+                        <ul>
+                            <li<>En tant que langage client, JavaScript est limité dans ses possibilités
+                                <ul>
+                                    <li>Il ne peut pas accéder par lui-même aux informations du serveur.</li>
+                                    <li>Il ne peut pas, non plus, lire ou écrire dans la base de données.</li>
+                                    <li>Seul, il ne permet pas de créer des sites dits "Dynamique". Un lanage serveur est obligatoire pour qu'il soit possible de fournir
+                                        ces fonctionnalités dynamiques.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Les limites de JavaScript</h3>
+                        <ul>
+                            <li>Des limites importantes au niveau du poste client sont imposées par les navigateurs dans leur interprétation de JavaScript
+                                pour des raisons de sécurité de l'utilisateur.
+                            </li>
+                            <li>La sécurité des navigateurs vise à protéger:
+                                <ul>
+                                    <li>La confidentialité des données du poste du visiteur</li>
+                                    <li>L'intégralité des données des autres sites consulutés.</li>
+                                    <li>Le système d'exploitation</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+
+                <!-- *************************************************************** -->
+                <!-- 3. Les bases de JavaScript -->
+                <!-- *************************************************************** -->
+
+                <section>
+                    <section>
+                        <h3>Les outils</h3>
+                        <img src="images/section3/outils.jpg" class="imgNoDecorate" width="200"/>
+                        <ul>
+                            <li>Sublime Text / Notepad ++</li>
+                            <li>Visual studio code</li>
+                            <li>PhpStorm</li>
+                        </ul>
+                    </section>
+                </section>
+                 
+                <section>
+                    <section>
+                        <h3>Les bonnes pratiques</h3>
+                        <img src="images/section3/best-practices.png" class="imgNoDecorate" width="200"/>
+                    </section>
+
+                    <section>
+                        <h3>Les bonnes pratiques</h3>
+                        <ul>
+                            <li class="fragment">L'indentation du code</li>
+                            <li class="fragment">Les commentaires
+                                <ul>
+                                    <li>Commentaire sur une ligne <br/><pre><code class="Bash" data-trim>// Compteur vaut 1</code></pre></li>
+                                    <li>Commentaire sur plusieurs lignes <br/><pre><code class="Bash" data-trim>/* Première version de mon script */</code></pre></li>
+                                    <li>Commentaire depuis une position jusqu'à la fin de la ligne <br/><pre><code class="Bash" data-trim>if(compteur == 1){ // Compteur vaut 1</code></pre></li>
+                                </ul>
+                            </li>
+                            <li  class="fragment">Les règles de nommage</li>
+                    </section>
+
+                    <section>
+                        <h3>Les bonnes pratiques</h3>
+                        <ul>
+                            <li class="fragment">Le nommage des fonctions
+                                <ul>
+                                    <li><i>is</i> retourne un résultat vrai ou faux</li>
+                                    <li><i>get</i> retourne un résultat calculé</li>
+                                    <li><i>set</i> affecte une donnée.</li>
+                                    <li><i>add</i> ajoute un élément</li>
+                                    <li><i>del</i> supprime un élément</li>
+                                </ul>
+                            </li>
+                    </section>
+
+                    <section>
+                        <h3>Les bonnes pratiques</h3>
+                        <ul>
+                            <li class="fragment">Le nommage des variables
+                                <ul>
+                                    <li><i>dt</i> date</li>
+                                    <li><i>prix</i> montant ou prix</li>
+                                    <li><i>nb</i> nombre entier</li>
+                                    <li><i>txt</i> chaîne de caractères</li>
+                                    <li><i>flag</i> indicateur de valeur "vrai" ou "faux"</li>
+                                </ul>
+                            </li>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>La structure d'un script</h3>
+                        <ul>
+                            <li>JavaScript est directement intégré au code HTML de la page. Le navigateur reconnaît les zones de script grâce aux balises "script" qui 
+                                identifient un bloc de script</li>
+                        </ul>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    ici le code javascript
+                                </script>
+                                <noscript>
+                                    Votre navigateur n'accepte pas le javascript.
+                                    Vous ne pourrez pas profiter de toutes les fonctionnalités.
+                                </noscript>
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h3>Votre premier script</h3>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    document.write("Hello world!!");
+                                </script>
+                                <noscript>
+                                    Votre navigateur n'accepte pas le javascript.
+                                    Vous ne pourrez pas profiter de toutes les fonctionnalités.
+                                </noscript>
+                            </code>
+                        </pre>
+                        <img src="images/section3/first-script.JPG" class="imgNoDecorate" width="600"/>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                            <h3>Les Bases de JavaScript</h3>
+                            <h4>Les variables</h4>
+                            <img src="images/section3/variables.jpg" class="imgNoDecorate" width="500"/>
+                    </section>
+
+                    <section>
+                        <h3>Déclaration et initialisation des variables</h3>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    var compteur = 0;
+                                    var monTexte = "Ceci est mon super texte...";
+                                    var prixTotal = 12.5;
+                                </script>
+                            </code>
+                        </pre>
+                    </section>
+
+                    <section>
+                        <h3>Déclaration sans initialisation des variables</h3>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    var compteur;
+                                    var prixTotal;
+                                </script>
+                            </code>
+                        </pre>
+                        <p><u><i>Remarque :</i></u> Il est possible de déclarer plusieurs variables avec une seule instruction</p>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    var compteur = 0, prixTotal = 12.5;
+                                </script>
+                            </code>
+                        </pre>
+                    </section>
+
+                    <section>
+                        <h3>Les variables indéfinies</h3>
+
+                        <p>Le fait de déclarer une variable sans lui affecter de valeur initiale rend la variable indéfinie. Elle contient la valeur <i>undefined</i>.
+                        Aucune manipulation n'est possible avec ce genre de variable.</p>
+                        <p>Une variable utilisée sans avoir été déclarée n'a pas ce statut de variable indéfinie. Pour le navigateur, une variable utilisée et non
+                            déclarée est inconnue et déclenche une erreur JavaScript. Il ne faut pas confondre <b>variable indéfinie</b> et <b>variable inconnue</b>
+                            car non déclarée.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3>le type number</h3>
+
+                        <p>Le type <i>number</i> concerne toutes les variables contenant un nombre, entier, à virgule, positif, ou négatif, très grand ou très petit.
+                        Il n'y a pas de notion de taille dans les variables JavaScript. Toute variable contenant une valeur numérique possède le type <i>number</i>.</p>
+                        <p>Les variables de ce type peuvent être manipulées avec les nombreuses opérations mathématiques disponibles en JavaScript.</p>
+                    </section>
+
+                    <section>
+                        <h3>Le type string</h3>
+                        <p>Le type <i>string</i> concerne toutes les variables contenant une chaîne de caractères. Une chaine de caractères est délimitée par les
+                        guillemets et peut contenir tous les autres caractères disponibles. Encore une fois, JavaScript ne se préoccupe pas de la taille de la 
+                        chaîne. Le type <i>string</i> est identique, que la chaîne comporte <b>un seul caractère ou plusieurs milliers</b>.</p>
+                    </section>
+
+                    <section>
+                        <h3>Le type boolean</h3>
+                        <p>Le type <i>boolean</i> (booléen) peut contenir deux valeurs : "vrai" ou "faux", soit <i>true</i> ou <i>false</i>. Le type booléen
+                        est issu de l'algèbre de Bool, mathématicien anglais du XIX e siècle qui a écrit les règles de manipulation des valeurs "vrai" et "faux".
+                        Ce type de données est très utilisé dans tous les langages, car il est à la base des tests conditionnels.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Les Bases de JavaScript</h3>
+                        <h4>Les objets</h4>
+                    </section>
+
+                    <section>
+                        <h3>Constructeur avec trois propriété et une méthode</h3>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    function Chien(txtNom, txtRace, txtMaitre){
+                                        this.nom = txtNom;
+                                        this.race = txtRace;
+                                        this.maitre = txtMaitre;
+                                        this.print = affChien;
+                                    }
+
+                                    function affChien(){
+                                        document.write("Ce chien s'appelle " + this.nom + " de race "+ this.race + ". Il appartient à "+ this.maitre +".");
+                                    }
+
+                                    var chien = new Chien("milou","bichon","tintin");
+                                    chien.print();
+                                </script>
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Les Bases de JavaScript</h3>
+                        <h4>Les tableaux</h4>
+                    </section>
+                    
+                    <section>
+                        <h3>Déclaration de tableau</h3>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                  var array = new Array("chien","chat","oiseaux");
+                                  var array = ["chien","chat","oiseaux"];
+
+                                  var array = new Array();
+                                  array["chien"] = "chien";
+                                </script>
+                            </code>
+                        </pre>
+                    </section>
+
+                    <section>
+                        <h3>Les méthodes sur les tableaux</h3>
+                        <ul>
+                            <li><i>concat()</i> regroupe deux tableaux ensemble et retourne le résultat de la concaténation sous forme d'un troisième tableau.</li>
+                            <li><i>join()</i> regroupe tous les éléments d'un tableau sous forme d'une chaîne de caractères.</li>
+                            <li><i>pop()</i> supprime le dernier élément d'un tableau.</li>
+                            <li><i>push()</i> ajoute des éléments en fin de tableau.</li>
+                            <li><i>reverse()</i> inverse l'ordre des éléments du tableau.</li>
+                            <li><i>shift()</i> supprime le premier élement du tableau.</li>
+                            <li><i>slice()</i> extrait une tranche d'un tableau.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Les méthodes sur les tableaux</h3>
+                        <ul>
+                            <li><i>sort()</i> trie les élements d'un tableau dans l'ordre croissant ou alphabétique.</li>
+                            <li><i>splice()</i> écrase une tranche d'un tableau.</li>
+                            <li><i>unshit()</i> insère des élements en début de tableau.</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Les Bases de JavaScript</h3>
+                        <h4>Les tests conditionnels</h4>
+                        <img src="images/section3/conditions.png" class="imgNoDecorate" width="500"/>
+                    </section>
+                    <section>
+                        <h3>Le test simple</h3>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    var prix = 100;
+                                    var prixTransport = 10;
+                                    if(prixTotal > 50){
+                                        prixTransport =prixTransport / 2;
+                                    }
+                                    //Test conditionnel simple, sans les accolades
+                                    if(prixTotal > 50) prixTransport = prixTransport / 2;
+                                </script>
+                            </code>
+                        </pre>
+                    </section>
+                    
+                    <section>
+                        <h3>Le test "si, sinon"</h3>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    var prix = 100;
+                                    var prixTransport = 10;
+                                    if(prixTotal > 50){
+                                        prixTransport = 5;
+                                    }else{
+                                        prixTransport = 10;
+                                    }
+
+                                    //opérateur ternaire
+                                    prixTransport = (prixTotal > 50 ) ? 5 : 10;
+                                </script>
+                            </code>
+                        </pre>
+                    </section>
+                    
+                    <section>
+                        <h3>Les tests multiples</h3>
+                        <pre>
+                            <code class="Bash" data-trim>
+                                <script type="text/javascript">
+                                    var compteur = 2;
+                                    switch (compteur) {
+                                        case 1:
+                                            document.write("Premier passage");
+                                            break;
+                                        case 2:
+                                            document.write("Second passage");
+                                            break;
+                                        default:
+                                            document.write("default")
+                                            break;
+                                    }
+                                </script>
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+
+                <section>
+                    <h3>TODO</h3>
+                </section>
+                <!-- *************************************************************** -->
+                <!-- FIN FORMATION ->
+                <!-- *************************************************************** -->
+
+                <section>
+                    <h3>Maintenant vous maîtrisez les bases fondamentales JavaScript<br /></h3>
+
+                    <img src="images/fin-formation.jpg" class="imgNoDecorate"/>
+                </section>
+
+			</div> <!-- End div slide -->
+
+		</div> <!-- End div Reveal -->
+
+		<!-- Scripts insertions -->
+		<script src="libs/reveal.js/lib/js/head.min.js"></script>
+		<script src="libs/reveal.js/js/reveal.js"></script>
+
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+                width: 1015,
+				controls: true, // affiche les flèches de contrôles
+				progress: true, // affiche barre de progression
+				history: true,
+				center: true, // center verticalement
+                slideNumber: true, // afficher les numéros de slide
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'libs/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'libs/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'libs/reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
