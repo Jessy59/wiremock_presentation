@@ -39,6 +39,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 
     <!-- Printing and PDF exports -->
@@ -48,6 +67,13 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'libs/reveal.js/css/print/pdf.css' : 'libs/reveal.js/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+
+
+
+
+
+
 
 
 
@@ -165,7 +191,8 @@
                         API HTTP utilisées. Ces tests garantissent :
                     <ul>
                         <li class="fragment">Notre application envoie les requêtes attendues à l'API HTTP utilisée.</li>
-                        <li class="fragment">Notre application fonctionne comme prévu lorsqu'elle reçoit une réponse attendue de l'API
+                        <li class="fragment">Notre application fonctionne comme prévu lorsqu'elle reçoit une réponse
+                            attendue de l'API
                             HTTP.
                         </li>
                     </ul>
@@ -174,6 +201,82 @@
             </section>
         </section>
 
+        <!-- *************************************************************** -->
+        <!-- 2. Configuration ? -->
+        <!-- *************************************************************** -->
+        <section>
+            <h3>Running Wiremock</h3>
+            <section>
+                <h5>Dépendances maven</h5>
+                <pre>
+                    <code class="Bash" data-trim>
+                        <dependency>
+                            <groupId>com.github.tomakehurst</groupId>
+                            <artifactId>wiremock</artifactId>
+                            <version>2.21</version>
+                        </dependency>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h5>Démarrer le serveur</h5>
+                <pre>
+                    <code class="bash" data-trim>
+                        // Instantiate the server
+                        WireMockServer wireMockServer = new WireMockServer(String host, int port);
+
+                        // Start the server
+                        wireMockServer.start();
+
+                        // Stop the server
+                        wireMockServer.stop();
+                    </code>
+                </pre>
+            </section>
+        </section>
+
+        <!-- *************************************************************** -->
+        <!-- 4. Stub ? -->
+        <!-- *************************************************************** -->
+        <section>
+            <section>
+                <h3>Stubs</h3>
+                <ul>
+                    <li class="fragment">get() , post() , put() , delete(), ...</li>
+                    <li class="fragment">path (/order)</li>
+                    <li class="fragment">autres paramètres :
+                        <ul>
+                            <ul>
+                                <li>status</li>
+                                <li>body</li>
+                                <li>delay</li>
+                                <li>...</li>
+                                </li>
+                            </ul>
+                        </ul>
+                </ul>
+            </section>
+            <section>
+                Je souhaite retourner la liste des commandes lorsque je contacte l'url http://localhost:8080/orders/
+                <pre>
+                    <code class="bash" data-trim>
+                        WireMock.stubFor(WireMock.get("/orders/").willReturn(WireMock.aResponse().withStatus(200).withBody("[{\n" + "\t\t\"order_number\": 123,\n"
+                        + "\t\t\"customer_order\": 456\n" + "\t}, {\n" + "\t\t\"order_number\": 789,\n"
+                        + "\t\t\"customer_order\": 101112\n" + "\t}\n" + "]")));
+                    </code>
+                </pre>
+                <img src="images/section3/get_orders.jpg" class="imgNoDecorate" width="500"/>
+            </section>
+            <section>
+                Je souhaite retourner la liste des commandes lorsque je contacte l'url http://localhost:8080/orders/
+                <pre>
+                    <code class="bash" data-trim>
+                        WireMock.stubFor(WireMock.get("/orders/").willReturn(WireMock.aResponse().withStatus(200).withBodyFile("orders.json")));
+                    </code>
+                </pre>
+                <img src="images/section3/get_orders.jpg" class="imgNoDecorate" width="500"/>
+            </section>
+        </section>
     </div> <!-- End div slide -->
 
 </div> <!-- End div Reveal -->
@@ -201,6 +304,25 @@
 					{ src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
 				]
 			});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
