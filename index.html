@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Dynamique des sites</title>
+    <title>Wiremock</title>
 
     <meta name="description" content="A la découverte de la Wiremock">
     <meta name="author" content="Jessy Lavorel">
@@ -23,41 +23,6 @@
                 box-shadow: 0 0 0;
                 background: initial;
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </style>
 
     <!-- Printing and PDF exports -->
@@ -67,29 +32,6 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'libs/reveal.js/css/print/pdf.css' : 'libs/reveal.js/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
     <!--[if lt IE 9]>
@@ -209,7 +151,7 @@
             <section>
                 <h5>Dépendances maven</h5>
                 <pre>
-                    <code class="Bash" data-trim>
+                    <code data-trim>
                         <dependency>
                             <groupId>com.github.tomakehurst</groupId>
                             <artifactId>wiremock</artifactId>
@@ -221,7 +163,7 @@
             <section>
                 <h5>Démarrer le serveur</h5>
                 <pre>
-                    <code class="bash" data-trim>
+                    <code data-trim>
                         // Instantiate the server
                         WireMockServer wireMockServer = new WireMockServer(String host, int port);
 
@@ -259,7 +201,7 @@
             <section>
                 Je souhaite retourner la liste des commandes lorsque je contacte l'url http://localhost:8080/orders/
                 <pre>
-                    <code class="bash" data-trim>
+                    <code data-trim>
                         WireMock.stubFor(WireMock.get("/orders/").willReturn(WireMock.aResponse().withStatus(200).withBody("[{\n" + "\t\t\"order_number\": 123,\n"
                         + "\t\t\"customer_order\": 456\n" + "\t}, {\n" + "\t\t\"order_number\": 789,\n"
                         + "\t\t\"customer_order\": 101112\n" + "\t}\n" + "]")));
@@ -270,15 +212,52 @@
             <section>
                 Je souhaite retourner la liste des commandes lorsque je contacte l'url http://localhost:8080/orders/
                 <pre>
-                    <code class="bash" data-trim>
+                    <code data-trim>
                         WireMock.stubFor(WireMock.get("/orders/").willReturn(WireMock.aResponse().withStatus(200).withBodyFile("orders.json")));
                     </code>
                 </pre>
                 <img src="images/section3/get_orders.jpg" class="imgNoDecorate" width="500"/>
             </section>
         </section>
+        <section>
+            <section>
+                <h3>Wiremock in JUnit Test</h3>
+            </section>
+            <section>
+                <h3>L'annotation <b>@Rules</b></h3><br/>
+                <pre><code data-trim>
+                    @Rule
+                    public WireMockRule wireMockRule = new WireMockRule(int port);
+                </code></pre>
+            </section>
+            <section>
+                <h2> Classe de test</h2>
+                <pre><code data-trim>
+public class TestMyApi
+{
+    @Rule
+    public WireMockRule wireMockRule = new WireMockRule(8080);
+
+    @Test
+    public void testMyMethod() {
+		//GIVEN
+        stubFor(get("/jessy/monapi")
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("\"testing-library\": \"WireMock\"")));
+
+        // WHEN
+		...
+        // THEN
+		...
+    }
+}
+                </code></pre>
+            </section>
+        </section>
     </div> <!-- End div slide -->
-    <div style="position: absolute; bottom:0;">                <img src="images/proxiad.png" class="imgNoDecorate" width="200"/>
+    <div style="position: absolute; bottom:0;"><img src="images/proxiad.png" class="imgNoDecorate" width="200"/>
     </div>
 
 </div> <!-- End div Reveal -->
@@ -306,40 +285,6 @@
 					{ src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
 				]
 			});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 </body>
