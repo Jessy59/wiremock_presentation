@@ -23,6 +23,11 @@
                 box-shadow: 0 0 0;
                 background: initial;
             }
+
+
+
+
+
     </style>
 
     <!-- Printing and PDF exports -->
@@ -32,6 +37,11 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'libs/reveal.js/css/print/pdf.css' : 'libs/reveal.js/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+
+
+
+
     </script>
 
     <!--[if lt IE 9]>
@@ -81,6 +91,7 @@
 
                 <img src="images/wm.jpg" class="imgNoDecorate" width="400"/>
 
+                <p>Tom Akehurst</p>
                 <aside class="notes">
                 </aside>
             </section>
@@ -181,39 +192,62 @@
         <!-- 4. Stub ? -->
         <!-- *************************************************************** -->
         <section>
+            <section><h3>Stubs</h3></section>
             <section>
-                <h3>Stubs</h3>
+                Un stub permet de configurer la réponse HTTP renvoyée par notre serveur WireMock lorsqu’il reçoit une
+                requête HTTP spécifique.
+                <br/><br/><br/>
+                <pre style="text-align: center;"><code data-trim>stubFor(...)</code></pre>
+            </section>
+            <section>
+                <h3>Méthode HTTP</h3>
+                <br/><br/>
+                <pre style="text-align: center;"><code data-trim>stubFor(get(...);</code></pre>
+                <pre style="text-align: center;"><code data-trim>stubFor(post(...);</code></pre>
+                <pre style="text-align: center;"><code data-trim>stubFor(put(...);</code></pre>
+            </section>
+            <section>
+                <h3>PATH</h3>
+                <br/>
                 <ul>
-                    <li class="fragment">get() , post() , put() , delete(), ...</li>
-                    <li class="fragment">path (/order)</li>
-                    <li class="fragment">autres paramètres :
-                        <ul>
-                            <ul>
-                                <li>status</li>
-                                <li>body</li>
-                                <li>delay</li>
-                                <li>...</li>
-                                </li>
-                            </ul>
-                        </ul>
+                    <li>Equality matching on path and query</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>stubFor(get(urlEqualTo("/your/url?and=query")));</code></pre>
+                    </li>
+                    <li>Regex matching on path and query</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>stubFor(get(urlMatching("/your/([a-z]*)\\?and=query")));</code></pre>
+                    </li>
+                    <li>Equality matching on the path only</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>stubFor(get(urlPathEqualTo("/your/url")));</code></pre>
+                    <li>Regex matching on the path only</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>stubFor(get(urlPathMatching("/your/([a-z]*)")));</code></pre>
                 </ul>
             </section>
             <section>
                 Je souhaite retourner la liste des commandes lorsque je contacte l'url http://localhost:8080/orders/
                 <pre>
                     <code data-trim>
-                        WireMock.stubFor(WireMock.get("/orders/").willReturn(WireMock.aResponse().withStatus(200).withBody("[{\n" + "\t\t\"order_number\": 123,\n"
-                        + "\t\t\"customer_order\": 456\n" + "\t}, {\n" + "\t\t\"order_number\": 789,\n"
-                        + "\t\t\"customer_order\": 101112\n" + "\t}\n" + "]")));
+                        stubFor(get("/orders/")
+                                .willReturn(aResponse()
+                                            .withStatus(200)
+                                            .withBody("[{\n" + "\t\t\"order_number\": 123,\n"
+                                            + "\t\t\"customer_order\": 456\n" + "\t}, {\n" + "\t\t\"order_number\": 789,\n"
+                                            + "\t\t\"customer_order\": 101112\n" + "\t}\n" + "]")));
                     </code>
                 </pre>
                 <img src="images/section3/get_orders.jpg" class="imgNoDecorate" width="500"/>
             </section>
-            <section>
+            <section>.reveal pre
                 Je souhaite retourner la liste des commandes lorsque je contacte l'url http://localhost:8080/orders/
                 <pre>
                     <code data-trim>
-                        WireMock.stubFor(WireMock.get("/orders/").willReturn(WireMock.aResponse().withStatus(200).withBodyFile("orders.json")));
+                        stubFor(get("/orders/")
+                                .willReturn(aResponse()
+                                            .withStatus(200)
+                                            .withBodyFile("orders.json")));
                     </code>
                 </pre>
                 <img src="images/section3/get_orders.jpg" class="imgNoDecorate" width="500"/>
@@ -285,6 +319,11 @@ public class TestMyApi
 					{ src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
 				]
 			});
+
+
+
+
+
 
 </script>
 </body>
