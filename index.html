@@ -24,19 +24,6 @@
                 background: initial;
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     </style>
 
     <!-- Printing and PDF exports -->
@@ -46,19 +33,6 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'libs/reveal.js/css/print/pdf.css' : 'libs/reveal.js/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </script>
 
@@ -194,7 +168,7 @@
                 <pre>
                     <code data-trim>
                         // Instantiate the server
-                        WireMockServer wireMockServer = new WireMockServer(String host, int port);
+                        WireMockServer wireMockServer = new WireMockServer(int port);
 
                         // Start the server
                         wireMockServer.start();
@@ -270,15 +244,29 @@
                 <h3>Paramètres sortants</h3>
                 <br/>
                 <em>Pour spécifier la réponse retournée par le serveur, on utilise la méthode :</em>
-                <pre style="text-align: center;"><code style="list-style-type: none;">.willReturn(...)</code></pre>
+                <pre style="text-align: center;"><code
+                        style="list-style-type: none;">.willReturn(aResponse())</code></pre>
             </section>
             <section>
                 <h3>Paramètres sortants</h3>
                 <br/>
                 <ul>
-                    <li>status</li>
+                    <li>specified status</li>
                     <li style="list-style-type: none;">
                         <pre><code data-trim>.withStatus(200)</code></pre>
+                    </li>
+                    <li>specified some header</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>.withHeader("Content-Type", "application/json")</code></pre>
+                    </li>
+                    <li>specified body / body file</li>
+                    <li style="list-style-type: none;">
+                        <pre><code
+                                data-trim>.withBody("{\"status\":\"Error\"}") / .withBodyFile("path/to/myfile.xml")</code></pre>
+                    </li>
+                    <li>specified delay for response</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>.withFixedDelay(2000)</code></pre>
                     </li>
                 </ul>
             </section>
@@ -376,6 +364,8 @@ public class TestMyApi
 					{ src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
 				]
 			});
+
+
 
 
 
