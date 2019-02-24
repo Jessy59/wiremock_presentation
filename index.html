@@ -28,6 +28,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
     </style>
 
     <!-- Printing and PDF exports -->
@@ -37,6 +46,15 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'libs/reveal.js/css/print/pdf.css' : 'libs/reveal.js/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+
+
+
+
+
+
+
+
 
 
 
@@ -227,30 +245,69 @@
                 </ul>
             </section>
             <section>
-                Je souhaite retourner la liste des commandes lorsque je contacte l'url http://localhost:8080/orders/
-                <pre>
-                    <code data-trim>
-                        stubFor(get("/orders/")
-                                .willReturn(aResponse()
-                                            .withStatus(200)
-                                            .withBody("[{\n" + "\t\t\"order_number\": 123,\n"
-                                            + "\t\t\"customer_order\": 456\n" + "\t}, {\n" + "\t\t\"order_number\": 789,\n"
-                                            + "\t\t\"customer_order\": 101112\n" + "\t}\n" + "]")));
-                    </code>
-                </pre>
-                <img src="images/section3/get_orders.jpg" class="imgNoDecorate" width="500"/>
+                <h3>Autres paramètres entrants</h3>
+                <br/>
+                <ul>
+                    <li>Check params</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>.withQueryParam("param", equalsTo("param_value"))</code></pre>
+                    </li>
+                    <li>Check body</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>.withRequestBody(equalToJson("{ \"total_results\": 4 }"))</code></pre>
+                    </li>
+                    <li>Check if attribute is present in body</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>.withRequestBody(matchingJsonPath("$.name"))</code></pre>
+                    </li>
+                    <li>Check header's attribute value</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>.withHeader("Content-Type", equalTo("application/json"))</code></pre>
+                    </li>
+                </ul>
             </section>
-            <section>.reveal pre
-                Je souhaite retourner la liste des commandes lorsque je contacte l'url http://localhost:8080/orders/
-                <pre>
-                    <code data-trim>
-                        stubFor(get("/orders/")
-                                .willReturn(aResponse()
-                                            .withStatus(200)
-                                            .withBodyFile("orders.json")));
-                    </code>
-                </pre>
-                <img src="images/section3/get_orders.jpg" class="imgNoDecorate" width="500"/>
+            <section>
+                <h3>Paramètres sortants</h3>
+                <br/>
+                <em>Pour spécifier la réponse retournée par le serveur, on utilise la méthode :</em>
+                <pre style="text-align: center;"><code style="list-style-type: none;">.willReturn(...)</code></pre>
+            </section>
+            <section>
+                <h3>Paramètres sortants</h3>
+                <br/>
+                <ul>
+                    <li>status</li>
+                    <li style="list-style-type: none;">
+                        <pre><code data-trim>.withStatus(200)</code></pre>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Stub commun</h3>
+                <br/>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <pre><code>stubFor(delete("/fine").willReturn(ok()));</code></pre>
+                    </li>
+                    <li>
+                        <pre><code data-trim>stubFor(get("/fine-with-body")
+             .willReturn(ok("body content")));</code></pre>
+                    </li>
+                    <li>
+                        <pre><code data-trim>stubFor(get("/json")
+             .willReturn(okJson("{ \"message\": \"Hello\" }")));</code></pre>
+                    </li>
+                    <li>
+                        <pre><code data-trim>stubFor(post("/redirect")
+             .willReturn(temporaryRedirect("/new/place")));</code></pre>
+                    </li>
+                    <li>
+                        <pre><code data-trim>stubFor(post("/sorry-no").willReturn(unauthorized()));</code></pre>
+                    </li>
+                    <li>
+                        <pre><code data-trim>stubFor(put("/status-only").willReturn(status(418)));</code></pre>
+                    </li>
+                </ul>
             </section>
         </section>
         <section>
@@ -319,6 +376,15 @@ public class TestMyApi
 					{ src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
 				]
 			});
+
+
+
+
+
+
+
+
+
 
 
 
