@@ -194,9 +194,9 @@
             <section>
                 <h3>Méthode HTTP</h3>
                 <br/><br/>
-                <pre style="text-align: center;"><code data-trim>stubFor(get(...);</code></pre>
-                <pre style="text-align: center;"><code data-trim>stubFor(post(...);</code></pre>
-                <pre style="text-align: center;"><code data-trim>stubFor(put(...);</code></pre>
+                <pre style="text-align: center;"><code data-trim>stubFor(get(...));</code></pre>
+                <pre style="text-align: center;"><code data-trim>stubFor(post(...));</code></pre>
+                <pre style="text-align: center;"><code data-trim>stubFor(put(...));</code></pre>
             </section>
             <section>
                 <h3>PATH</h3>
@@ -224,7 +224,7 @@
                 <ul>
                     <li>Check params</li>
                     <li style="list-style-type: none;">
-                        <pre><code data-trim>.withQueryParam("param", equalsTo("param_value"))</code></pre>
+                        <pre><code data-trim>.withQueryParam("param", equalTo("param_value"))</code></pre>
                     </li>
                     <li>Check body</li>
                     <li style="list-style-type: none;">
