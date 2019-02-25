@@ -18,21 +18,21 @@
     <link rel="stylesheet" href="libs/reveal.js/lib/css/zenburn.css">
 
     <style>
-            .reveal section img.imgNoDecorate {
-                border:0;
-                box-shadow: 0 0 0;
-                background: initial;
-            }
+        .reveal section img.imgNoDecorate {
+            border: 0;
+            box-shadow: 0 0 0;
+            background: initial;
+        }
 
     </style>
 
     <!-- Printing and PDF exports -->
     <script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'libs/reveal.js/css/print/pdf.css' : 'libs/reveal.js/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/css/print/pdf.css' : 'libs/reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
 
     </script>
 
@@ -68,7 +68,7 @@
 
         <section>
             <section>
-                <h3>Qui suis-je ?</h3>
+                <h3><b>Qui suis-je ?</b></h3>
                 <h5 class="fragment">Jessy Lavorel</h5>
                 <img src="images/section0/qui-sommes-nous.jpg" class="imgNoDecorate" width="400"/>
 
@@ -79,7 +79,7 @@
 
         <section>
             <section>
-                <h3>Qu'est-ce que WIREMOCK ?</h3>
+                <h3><b>Qu'est-ce que WIREMOCK ?</b></h3>
 
                 <img src="images/wm.jpg" class="imgNoDecorate" width="400"/>
 
@@ -101,7 +101,7 @@
 
         <section>
             <section>
-                <h3>Quand utiliser WireMock?</h3>
+                <h3><b>Quand utiliser WireMock?</b></h3>
                 <br/>
                 <br/>
                 <ul>
@@ -150,7 +150,7 @@
         <!-- 2. Configuration ? -->
         <!-- *************************************************************** -->
         <section>
-            <h3>Running Wiremock</h3>
+            <h3><b>Running Wiremock</b></h3>
             <section>
                 <h5>Dépendances maven</h5>
                 <pre>
@@ -184,7 +184,7 @@
         <!-- 4. Stub ? -->
         <!-- *************************************************************** -->
         <section>
-            <section><h3>Stubs</h3></section>
+            <section><h3><b>Stubs</b></h3></section>
             <section>
                 Un stub permet de configurer la réponse HTTP renvoyée par notre serveur WireMock lorsqu’il reçoit une
                 requête HTTP spécifique.
@@ -192,14 +192,14 @@
                 <pre style="text-align: center;"><code data-trim>stubFor(...)</code></pre>
             </section>
             <section>
-                <h3>Méthode HTTP</h3>
+                <h3><b>Méthode HTTP</b></h3>
                 <br/><br/>
                 <pre style="text-align: center;"><code data-trim>stubFor(get(...));</code></pre>
                 <pre style="text-align: center;"><code data-trim>stubFor(post(...));</code></pre>
                 <pre style="text-align: center;"><code data-trim>stubFor(put(...));</code></pre>
             </section>
             <section>
-                <h3>PATH</h3>
+                <h3><b>PATH</b></h3>
                 <br/>
                 <ul>
                     <li>Equality matching on path and query</li>
@@ -219,7 +219,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Autres paramètres entrants</h3>
+                <h3><b>Autres paramètres entrants</b></h3>
                 <br/>
                 <ul>
                     <li>Check params</li>
@@ -241,14 +241,14 @@
                 </ul>
             </section>
             <section>
-                <h3>Paramètres sortants</h3>
+                <h3><b>Paramètres sortants</b></h3>
                 <br/>
                 <em>Pour spécifier la réponse retournée par le serveur, on utilise la méthode :</em>
                 <pre style="text-align: center;"><code
                         style="list-style-type: none;">.willReturn(aResponse())</code></pre>
             </section>
             <section>
-                <h3>Paramètres sortants</h3>
+                <h3><b>Paramètres sortants</b></h3>
                 <br/>
                 <ul>
                     <li>specified status</li>
@@ -271,7 +271,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Stub commun</h3>
+                <h3><b>Stub courant</b></h3>
                 <br/>
                 <ul style="list-style-type: none;">
                     <li>
@@ -300,40 +300,72 @@
         </section>
         <section>
             <section>
-                <h3>Wiremock in JUnit Test</h3>
+                <h3><b>Wiremock in JUnit Test</b></h3>
             </section>
             <section>
-                <h3>L'annotation <b>@Rules</b></h3><br/>
+                <h3><b>L'annotation <span style="color:blue;">@Rules</span></b></h3><br/>
                 <pre><code data-trim>
                     @Rule
                     public WireMockRule wireMockRule = new WireMockRule(int port);
                 </code></pre>
             </section>
             <section>
-                <h2> Classe de test</h2>
+                Pour chaque méthode de test, créer les stubs nécessaires au bon fonctionnement de celui-ci.
                 <pre><code data-trim>
-public class TestMyApi
-{
-    @Rule
-    public WireMockRule wireMockRule = new WireMockRule(8080);
-
     @Test
     public void testMyMethod() {
-		//GIVEN
+        //GIVEN
         stubFor(get("/jessy/monapi")
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
                         .withBody("\"testing-library\": \"WireMock\"")));
-
-        // WHEN
-		...
-        // THEN
-		...
     }
-}
                 </code></pre>
             </section>
+            <section>
+                <h3><b>La méthode <span style="color:blue;">Verifying</span></b></h3>
+                <br/>
+                <div style="text-align: left;">Le serveur WireMock enregistre toutes les demandes qu'il reçoit en
+                    mémoire (jusqu'à ce
+                    qu'il soit réinitialisé ).
+                    <br/>Cela permet de vérifier qu’une demande correspondant à un modèle spécifique a été reçue et
+                    d’extraire les détails de la demande.
+                </div>
+            </section>
+            <section style="text-align: left;">
+                Pour vérifier qu'une demande correspondant à certains critères a été reçue au moins une fois par
+                WireMock :
+                <br/>
+                <br/>
+                <pre style="text-align: center;"><code
+                        data-trim>verify(getRequestedFor(urlEqualTo("/api/messages")));</code></pre>
+            </section>
+            <section style="text-align: left;">
+                Pour vérifier le nombre précis de demandes correspondant aux critères :
+                <br/>
+                <br/>
+                <pre style="text-align: center;"><code
+                        data-trim>verify(3, getRequestedFor(urlEqualTo("/api/messages")));</code></pre>
+            </section>
+            <section style="text-align: left;">
+                Ou vous pouvez utiliser des opérateurs de comparaison plus avancés :
+                <br/>
+                <br/>
+                <pre><code
+                        data-trim>verify(lessThan(5), getRequestedFor(urlEqualTo("/api/messages")));</code></pre>
+                <pre><code
+                        data-trim>verify(lessThanOrExactly(5), getRequestedFor(urlEqualTo("/api/messages")));</code></pre>
+                <pre><code
+                        data-trim>verify(exactly(5), getRequestedFor(urlEqualTo("/api/messages")));</code></pre>
+                <pre><code
+                        data-trim>verify(moreThanOrExactly(5), getRequestedFor(urlEqualTo("/api/messages")));</code></pre>
+                <pre><code
+                        data-trim>verify(moreThan(5), getRequestedFor(urlEqualTo("/api/messages")));</code></pre>
+            </section>
+        </section>
+        <section>
+            <img src="images/questions2.jpg" class="imgNoDecorate" width="600px"/>
         </section>
     </div> <!-- End div slide -->
     <div style="position: absolute; bottom:0;"><img src="images/proxiad.png" class="imgNoDecorate" width="200"/>
@@ -346,39 +378,32 @@ public class TestMyApi
 <script src="libs/reveal.js/js/reveal.js"></script>
 
 <script>
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-                width: 1015,
-				controls: true, // affiche les flèches de contrôles
-				progress: true, // affiche barre de progression
-				history: true,
-				center: true, // center verticalement
-                slideNumber: true, // afficher les numéros de slide
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'libs/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'libs/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'libs/reveal.js/plugin/zoom-js/zoom.js', async: true },
-					{ src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
-				]
-			});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        width: 1015,
+        controls: true, // affiche les flèches de contrôles
+        progress: true, // affiche barre de progression
+        history: true,
+        center: true, // center verticalement
+        slideNumber: true, // afficher les numéros de slide
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'libs/reveal.js/lib/js/classList.js', condition: function () {
+                    return !document.body.classList;
+                }
+            },
+            {
+                src: 'libs/reveal.js/plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            },
+            {src: 'libs/reveal.js/plugin/zoom-js/zoom.js', async: true},
+            {src: 'libs/reveal.js/plugin/notes/notes.js', async: true}
+        ]
+    });
 
 
 </script>
